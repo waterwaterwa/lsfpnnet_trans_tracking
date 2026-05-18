@@ -216,7 +216,7 @@ This project is built upon the following works. If you find this project useful,
 ```
 
 - [TransT](https://github.com/chenxin-dlut/TransT) - Transformer Tracking (CVPR 2021)
-- [LSNet](https://github.com/THU-MIG/lsnet) - Large Separable Convolution Network
+- [LSNet](https://link.zhihu.com/?target=https%3A//github.com/THU-MIG/lsnet) - Large Separable Convolution Network
 
 ## License
 
