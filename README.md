@@ -202,6 +202,22 @@ settings.featurefusion_layers = 2  # Number of encoder layers
 settings.dropout = 0.1             # Dropout rate
 ```
 
+## Citation
+
+This project is built upon the following works. If you find this project useful, please consider citing:
+
+```bibtex
+@inproceedings{chen2021transt,
+  title={TransT: Transformer Tracking},
+  author={Chen, Xin and Wang, Zongxin and Peng, Yibing and Zhang, Jianpeng and Feng, Jiashi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2021}
+}
+```
+
+- [TransT](https://github.com/chenxin-dlut/TransT) - Transformer Tracking (CVPR 2021)
+- [LSNet](https://github.com/THU-MIG/lsnet) - Large Separable Convolution Network
+
 ## License
 
 This project is released under the [GNU General Public License v3.0](LICENSE).
