@@ -1,12 +1,19 @@
 # LSfpnNet-DYT: Single Object Tracking with LSNet Backbone and DyT Normalization
 
 <p align="center">
-  <img src="assets/tracking_demo.gif" alt="Tracking Demo" width="600">
+  <em>Single Object Tracking Demos</em>
 </p>
 
-<p align="center">
-  <em>Single Object Tracking Demo</em>
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><img src="assets/tracking_demo.gif" alt="Demo 1" width="360"></td>
+    <td align="center"><img src="assets/demo2.gif" alt="Demo 2" width="360"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/demo3.gif" alt="Demo 3" width="360"></td>
+    <td align="center"><img src="assets/demo4.gif" alt="Demo 4" width="360"></td>
+  </tr>
+</table>
 
 A PyTorch-based single object tracking (SOT) framework featuring an **LSNet backbone** with multi-stage feature alignment, **DyT (Dynamic Tanh) normalization** replacing standard LayerNorm, and a **Transformer-based feature fusion network** for template-search region interaction.
 
@@ -202,35 +209,7 @@ settings.featurefusion_layers = 2  # Number of encoder layers
 settings.dropout = 0.1             # Dropout rate
 ```
 
-## Citation
-
-This project is built upon the following works. If you find this project useful, please consider citing:
-
-```bibtex
-@inproceedings{chen2021transt,
-  title={TransT: Transformer Tracking},
-  author={Chen, Xin and Wang, Zongxin and Peng, Yibing and Zhang, Jianpeng and Feng, Jiashi},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2021}
-}
-
-@misc{wang2025lsnet,
-  title={LSNet: See Large, Focus Small},
-  author={Wang, Ao and Chen, Hui and Lin, Zijia and Han, Jungong and Ding, Guiguang},
-  year={2025},
-  eprint={2503.23135},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
-}
-```
-
-- [TransT](https://github.com/chenxin-dlut/TransT) - Transformer Tracking (CVPR 2021)
-- [LSNet](https://github.com/THU-MIG/lsnet) - See Large, Focus Small, by Wang et al. (CVPR 2025)
-
 ## License
 
 This project is released under the [GNU General Public License v3.0](LICENSE).
 
-## Contact
-
-If you have any questions, please contact: zqb20022002@163.com
