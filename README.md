@@ -213,10 +213,19 @@ This project is built upon the following works. If you find this project useful,
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2021}
 }
+
+@misc{wang2025lsnet,
+  title={LSNet: See Large, Focus Small},
+  author={Wang, Ao and Chen, Hui and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  year={2025},
+  eprint={2503.23135},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}
 ```
 
 - [TransT](https://github.com/chenxin-dlut/TransT) - Transformer Tracking (CVPR 2021)
-- [LSNet](https://link.zhihu.com/?target=https%3A//github.com/THU-MIG/lsnet) - Large Separable Convolution Network
+- [LSNet](https://github.com/THU-MIG/lsnet) - See Large, Focus Small, by Wang et al. (CVPR 2025)
 
 ## License
 
