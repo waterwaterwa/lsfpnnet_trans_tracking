@@ -205,3 +205,7 @@ settings.dropout = 0.1             # Dropout rate
 ## License
 
 This project is released under the [GNU General Public License v3.0](LICENSE).
+
+## Contact
+
+If you have any questions, please contact: zqb20022002@163.com
