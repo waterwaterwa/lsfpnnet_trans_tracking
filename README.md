@@ -213,3 +213,32 @@ settings.dropout = 0.1             # Dropout rate
 
 This project is released under the [GNU General Public License v3.0](LICENSE).
 
+## Citation
+
+This project is built upon the following works. If you find this project useful, please consider citing:
+
+```bibtex
+@inproceedings{chen2021transt,
+  title={TransT: Transformer Tracking},
+  author={Chen, Xin and Wang, Zongxin and Peng, Yibing and Zhang, Jianpeng and Feng, Jiashi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2021}
+}
+
+@misc{wang2025lsnet,
+  title={LSNet: See Large, Focus Small},
+  author={Wang, Ao and Chen, Hui and Lin, Zijia and Han, Jungong and Ding, Guiguang},
+  year={2025},
+  eprint={2503.23135},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}
+```
+
+- [TransT](https://github.com/chenxin-dlut/TransT) - Transformer Tracking (CVPR 2021)
+- [LSNet](https://github.com/THU-MIG/lsnet) - See Large, Focus Small, by Wang et al. (CVPR 2025)
+
+## Contact
+
+If you have any questions, please contact: zqb20022002@163.com
+
