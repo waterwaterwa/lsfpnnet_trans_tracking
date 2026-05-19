@@ -12,28 +12,9 @@ A PyTorch-based single object tracking (SOT) framework featuring an **LSNet back
 
 ## Architecture Overview
 
-```
-Input (search / template images)
-    |
-    v
-LSNet Backbone (16x downsampling)
-  patch_embed (4x) -> Stage1 (1/4) -> Stage2 (1/8) -> Stage3 (1/16)
-  -> ThreeStageAlign (fuse stages 1-3 to 1/16) -> SE + LSConv -> Stage4 (1/16)
-    |
-    v
-1x1 Conv Projection (backbone_channels -> hidden_dim)
-    |
-    v
-Feature Fusion Network (Transformer)
-  Encoder: N layers of (self-attn + bidirectional cross-attn + FFN) with DyT
-  Decoder: 1 layer of (cross-attn + FFN) with DyT
-    |
-    v
-MLP Classification Head + MLP Regression Head
-    |
-    v
-pred_logits + pred_boxes
-```
+<p align="center">
+  <img src="assets/architecture.png" alt="Architecture Overview" width="800">
+</p>
 
 ### Key Components
 
@@ -44,6 +25,14 @@ pred_logits + pred_boxes
 | **DyT (Dynamic Tanh)** | Replaces LayerNorm with learnable `tanh(alpha * x) * weight + bias` |
 | **Feature Fusion Network** | Transformer encoder-decoder with bidirectional cross-attention between template and search features |
 | **SKA (Spatial Kernel Attention)** | Triton-accelerated spatial kernel attention for efficient large-kernel convolution |
+
+<p align="center">
+  <img src="assets/lsnet.png" alt="LSNet Architecture" width="700">
+</p>
+
+<p align="center">
+  <img src="assets/dyt.jpg" alt="DyT Normalization" width="600">
+</p>
 
 ### Backbone Variants
 
