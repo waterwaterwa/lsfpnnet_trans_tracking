@@ -31,7 +31,7 @@ A PyTorch-based single object tracking (SOT) framework featuring an **LSNet back
 </p>
 
 <p align="center">
-  <img src="assets/dyt.jpg" alt="DyT Normalization" width="600">
+  <img src="assets/dyt.png" alt="DyT Normalization" width="600">
 </p>
 
 ### Backbone Variants
