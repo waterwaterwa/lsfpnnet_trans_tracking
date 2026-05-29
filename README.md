@@ -169,6 +169,9 @@ python pytracking/run_webcam.py sot sot
 │   │   │   └── sot_model.py      # SOTTracker + SetCriterion
 │   │   └── loss/                 # Matcher module
 │   ├── train_settings/           # Training configurations
+│   ├── utils/                     # Utility modules
+│   │   ├── cam_visualize.py       # Grad-CAM and attention heatmap tools
+│   │   └── model_analysis.py      # FLOPs and parameter counting
 │   └── run_training.py           # Training entry point
 ├── pytracking/                   # Inference framework
 │   ├── tracker/sot_tracker/      # Tracker implementation
@@ -177,6 +180,8 @@ python pytracking/run_webcam.py sot sot
 │   └── run_video.py              # Video tracking entry point
 ├── pysot_toolkit/                # Evaluation toolkit
 ├── got10k_toolkit/               # GOT-10k evaluation toolkit
+├── tools/                        # Analysis tools
+│   └── analyze_model.py          # FLOPs + CAM analysis script
 └── LICENSE                       # GPLv3
 ```
 
@@ -207,6 +212,78 @@ settings.nheads = 8                # Number of attention heads
 settings.dim_feedforward = 1024    # FFN intermediate dimension
 settings.featurefusion_layers = 2  # Number of encoder layers
 settings.dropout = 0.1             # Dropout rate
+```
+
+## Model Analysis Tools
+
+### FLOPs & Parameters
+
+Analyze model complexity with one command:
+
+```bash
+# Exact calculation via thop
+python tools/analyze_model.py --mode flops --use_thop
+
+# Manual estimation (no extra dependencies)
+python tools/analyze_model.py --mode flops --no_thop
+
+# Custom configuration
+python tools/analyze_model.py --mode flops \
+    --hidden_dim 256 --nheads 8 \
+    --dim_feedforward 1024 --featurefusion_layers 2 \
+    --search_size 288 --template_size 128
+```
+
+This will print FLOPs, total/trainable parameters, and a per-module breakdown.
+
+### CAM Heatmap Visualization
+
+Visualize where the model focuses during tracking:
+
+```bash
+# Grad-CAM heatmap
+python tools/analyze_model.py --mode cam \
+    --checkpoint path/to/model.pth.tar \
+    --image path/to/search.jpg \
+    --template path/to/template.jpg \
+    --cam_layer input_proj
+
+# Multi-layer Grad-CAM grid
+python tools/analyze_model.py --mode cam \
+    --checkpoint path/to/model.pth.tar \
+    --image path/to/search.jpg \
+    --template path/to/template.jpg \
+    --grid
+
+# Cross-attention heatmap
+python tools/analyze_model.py --mode cam \
+    --checkpoint path/to/model.pth.tar \
+    --image path/to/search.jpg \
+    --template path/to/template.jpg \
+    --cross_attn
+
+# Full analysis
+python tools/analyze_model.py --mode all \
+    --checkpoint path/to/model.pth.tar \
+    --image path/to/search.jpg \
+    --template path/to/template.jpg
+```
+
+Also available as Python API:
+
+```python
+from ltr.utils import analyze_model, count_flops, count_params
+from ltr.utils import generate_cam_heatmap, CAMVisualizer
+
+# FLOPs & Params
+results = analyze_model(model, search_size=(288, 288), use_thop=True)
+
+# CAM heatmap
+cam_results = generate_cam_heatmap(
+    model, search_tensor, template_tensor,
+    target_layer='input_proj', image_np=search_img,
+    save_path='gradcam.png'
+)
 ```
 
 ## License
